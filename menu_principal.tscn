@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddtt68of4h6x"]
+[gd_scene load_steps=4 format=3 uid="uid://ddtt68of4h6x"]
 
 [ext_resource type="Script" uid="uid://dnc3mystowf7v" path="res://menu_principal.gd" id="1_bj1uy"]
+[ext_resource type="Texture2D" uid="uid://bofiq86wkbpgj" path="res://public/Gatos/Cat-2/Cat-2-Idle.png" id="2_gmcsc"]
 
 [sub_resource type="GDScript" id="GDScript_gmcsc"]
 script/source = "extends Button
@@ -23,26 +24,25 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.024
 anchor_bottom = 0.04
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 1126.35
-offset_bottom = 628.08
+offset_right = 1124.35
+offset_bottom = 622.08
 color = Color(0.141887, 0.341193, 0.292479, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1, 2)
 layout_mode = 0
-offset_left = 352.0
+offset_left = 264.0
 offset_top = 184.0
-offset_right = 807.0
-offset_bottom = 449.0
+offset_right = 891.0
+offset_bottom = 408.0
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="LabelJuego" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
-text = "Hola este es mi primer juego"
+text = "Hola este es nuestro primer juego"
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="LabelVacio" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="BotonInicio" type="Button" parent="VBoxContainer"]
@@ -52,11 +52,26 @@ text = "Iniciar juego
 "
 script = SubResource("GDScript_gmcsc")
 
+[node name="GatoNegro" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(312, 352)
+scale = Vector2(2.304, 1.62)
+texture = ExtResource("2_gmcsc")
+
 [node name="BotonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Salir
 "
+
+[node name="LabelEquipo" type="Label" parent="."]
+layout_mode = 2
+offset_left = 360.0
+offset_top = 576.0
+offset_right = 815.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 33
+text = "Emalhao ~ Prolygin"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/BotonInicio" to="." method="_on_boton_inicio_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotonInicio" to="VBoxContainer/BotonInicio" method="_on_pressed"]
