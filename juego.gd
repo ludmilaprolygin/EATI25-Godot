@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var jugador = $Entidades/jugador
-@onready var cantidad_enemigos = 5
+@onready var cantidad_enemigos = 0
 
 func _ready() -> void:
 	for i in range(0, cantidad_enemigos):

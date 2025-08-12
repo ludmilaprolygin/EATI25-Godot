@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://07blwowwu5rv"]
+
+[ext_resource type="Texture2D" uid="uid://b74ya7qs205df" path="res://public/lanzaovillos.png" id="1_a3s0w"]
+[ext_resource type="Script" uid="uid://djksvx32rod8n" path="res://lanzaovillos.gd" id="2_fovls"]
+
+[node name="Lanzaovillos" type="Sprite2D"]
+scale = Vector2(0.1195, 0.1195)
+texture = ExtResource("1_a3s0w")
+script = ExtResource("2_fovls")
