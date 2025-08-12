@@ -11,3 +11,9 @@ func _physics_process(delta: float) -> void:
 
 	if distancia >= recorrido_max:
 		queue_free()
+		
+func _ready() -> void:
+	var audio = $AudioStreamPlayer2D
+	var random_pitch = randf()
+	audio.pitch_scale = audio.pitch_scale - random_pitch
+	audio.play()

@@ -1,19 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvjbbtp5thb15"]
+[gd_scene load_steps=5 format=3 uid="uid://dvjbbtp5thb15"]
 
 [ext_resource type="Script" uid="uid://cgplncroj53tn" path="res://proyectil.gd" id="1_c2ast"]
-[ext_resource type="Texture2D" uid="uid://hpmbufljwlno" path="res://public/Wool.png" id="2_bf4ll"]
+[ext_resource type="Texture2D" uid="uid://dpc1ff8ka8wqk" path="res://public/Wool.png" id="2_bf4ll"]
+[ext_resource type="AudioStream" uid="uid://bhvw5xg0we3nh" path="res://public/GatoEnojado.mp3" id="3_oby6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbc2f"]
-radius = 9.75268
+radius = 7.75337
 
 [node name="Ovillo" type="Area2D"]
 script = ExtResource("1_c2ast")
 
 [node name="Wool" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.107255, 0.113941)
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.22468, 0.228023)
 texture = ExtResource("2_bf4ll")
+region_enabled = true
+region_rect = Rect2(32.1578, 269.683, 76.1771, 76.1771)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, -0.22847)
 shape = SubResource("CircleShape2D_sbc2f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oby6o")
