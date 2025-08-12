@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpc1ff8ka8wqk"
-path="res://.godot/imported/Wool.png-b62212f7321b504fa7c86318205e8ac5.ctex"
+uid="uid://cagwwoqhr7hh0"
+path="res://.godot/imported/RatonMarron.png-f132bd88647878162b53855d2df44f96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/Wool.png"
-dest_files=["res://.godot/imported/Wool.png-b62212f7321b504fa7c86318205e8ac5.ctex"]
+source_file="res://public/Ratones/RatonMarron.png"
+dest_files=["res://.godot/imported/RatonMarron.png-f132bd88647878162b53855d2df44f96.ctex"]
 
 [params]
 

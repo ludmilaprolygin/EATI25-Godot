@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvjbbtp5thb15"]
+
+[ext_resource type="Script" uid="uid://cgplncroj53tn" path="res://proyectil.gd" id="1_c2ast"]
+[ext_resource type="Texture2D" uid="uid://hpmbufljwlno" path="res://public/Wool.png" id="2_bf4ll"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbc2f"]
+radius = 9.75268
+
+[node name="Ovillo" type="Area2D"]
+script = ExtResource("1_c2ast")
+
+[node name="Wool" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.107255, 0.113941)
+texture = ExtResource("2_bf4ll")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -0.22847)
+shape = SubResource("CircleShape2D_sbc2f")

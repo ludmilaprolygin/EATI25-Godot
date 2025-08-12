@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dave6dooc1c0s" path="res://public/Gatos/Cat-2/Cat-2-Licking 1.png" id="3_ukil5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8o684"]
-radius = 24.0
-height = 72.0
+radius = 21.0
+height = 42.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7st5j"]
 atlas = ExtResource("2_8o684")
@@ -116,14 +116,14 @@ animations = [{
 script = ExtResource("1_omvyu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 24)
+position = Vector2(1, 7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8o684")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.5, 24)
+position = Vector2(1, 0)
 scale = Vector2(3.96875, 3.8125)
 sprite_frames = SubResource("SpriteFrames_o2m60")
 animation = &"still"
