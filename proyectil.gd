@@ -17,3 +17,9 @@ func _ready() -> void:
 	var random_pitch = randf()
 	audio.pitch_scale = audio.pitch_scale - random_pitch
 	audio.play()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("recibir_daño"):
+		body.recibir_daño()
+		queue_free()

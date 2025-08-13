@@ -180,7 +180,9 @@ tile_set = SubResource("TileSet_n74ki")
 [node name="jugador" parent="Entidades" instance=ExtResource("1_g3dr0")]
 position = Vector2(575, 316)
 
-[node name="obstaculoArbol" parent="Entidades" instance=ExtResource("2_n74ki")]
+[node name="Obstaculos" type="Node2D" parent="."]
+
+[node name="obstaculoArbol" parent="Obstaculos" instance=ExtResource("2_n74ki")]
 texture_filter = 1
 position = Vector2(369, 675)
 scale = Vector2(4, 4)
@@ -202,3 +204,5 @@ position = Vector2(1411, 502)
 
 [node name="Punto5" type="Node2D" parent="PuntosAparicion"]
 position = Vector2(247, 526)
+
+[node name="Enemigos" type="Node2D" parent="."]
