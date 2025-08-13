@@ -176,6 +176,7 @@ tile_set = SubResource("TileSet_n74ki")
 
 [node name="jugador" parent="Entidades" instance=ExtResource("1_g3dr0")]
 position = Vector2(575, 316)
+speed = 300
 
 [node name="obstaculoArbol" parent="Entidades" instance=ExtResource("2_n74ki")]
 position = Vector2(369, 675)

@@ -7,3 +7,6 @@
 scale = Vector2(0.1195, 0.1195)
 texture = ExtResource("1_a3s0w")
 script = ExtResource("2_fovls")
+
+[node name="PuntaArma" type="Node2D" parent="."]
+position = Vector2(125.523, -50.2092)
