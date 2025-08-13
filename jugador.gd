@@ -23,13 +23,7 @@ func _physics_process(delta: float) -> void:
 			sprite.play("run")
 		else:
 			velocity = direction * walk_speed
-			if direction == Vector2.UP:
-				sprite.play("atras")
-			elif direction == Vector2.DOWN:
-				sprite.play("frente")
-			else:
-				sprite.play("move")
-			
+			sprite.play("move")
 		
 		# Solo cambiar flip cuando hay input horizontal
 		if direction.x != 0:

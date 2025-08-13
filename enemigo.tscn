@@ -1,20 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://crao0pocbgtyk"]
+[gd_scene load_steps=8 format=3 uid="uid://crao0pocbgtyk"]
 
 [ext_resource type="Script" uid="uid://b5b33ihwoy8oj" path="res://enemigo.gd" id="1_a5tj2"]
-[ext_resource type="Texture2D" uid="uid://dag00evvm27va" path="res://public/Ratones/RatonMarronUnitario.png" id="2_a5tj2"]
+[ext_resource type="Texture2D" uid="uid://cagwwoqhr7hh0" path="res://public/Ratones/RatonMarron.png" id="2_a5tj2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_becj5"]
 radius = 8.0
-height = 32.0
+height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5tj2"]
+atlas = ExtResource("2_a5tj2")
+region = Rect2(187, 270, 180, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moxti"]
+atlas = ExtResource("2_a5tj2")
+region = Rect2(7, 270, 180, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnx68"]
+atlas = ExtResource("2_a5tj2")
+region = Rect2(187, 100, 180, 170)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8qs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5tj2")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5tj2")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5tj2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moxti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnx68")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
 
 [node name="Enemigo" type="CharacterBody2D"]
 script = ExtResource("1_a5tj2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_becj5")
 
-[node name="RatonMarronUnitario" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-07, 2.38419e-07)
-scale = Vector2(0.30298, 0.29)
-texture = ExtResource("2_a5tj2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -9)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_j8qs0")
+animation = &"death"
+frame = 5
+frame_progress = 0.269503
