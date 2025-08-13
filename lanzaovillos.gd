@@ -26,8 +26,14 @@ func disparar():
 	disparo.global_position = puntaArma.global_position
 
 	# Rotar disparo para que apunte al mouse
-	disparo.rotation = (get_global_mouse_position() - puntaArma.global_position).angle()
+	var dir = (get_global_mouse_position() - puntaArma.global_position).normalized()
 
+	if $"..".velocity.length() != 0:
+		var max_spread_deg = 5
+		var random_angle = deg_to_rad(randf_range(-max_spread_deg, max_spread_deg))
+		dir = dir.rotated(random_angle)
+		
+	disparo.rotation = dir.angle()
 	# Agregar el proyectil a la escena (hermano o padre, según cómo esté tu jerarquía)
 	get_tree().current_scene.add_child(disparo)
 	

@@ -124,6 +124,7 @@ shape = SubResource("CapsuleShape2D_8o684")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1, 0)
 scale = Vector2(3.96875, 3.8125)
 sprite_frames = SubResource("SpriteFrames_o2m60")
@@ -132,4 +133,5 @@ autoplay = "still"
 flip_h = true
 
 [node name="Arma" parent="." instance=ExtResource("4_ukil5")]
+texture_filter = 1
 position = Vector2(24, 2)
