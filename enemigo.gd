@@ -24,7 +24,9 @@ func recibir_daño():
 	if lives<=0:
 		target = false
 		sprite.play("death")
-		await get_tree().process_frame  # Espera un frame para mostrar el cambio
+		$CPUParticles2D.emitting = true
+		$AudioStreamPlayer2D.play()
+		await get_tree().process_frame
 		await get_tree().create_timer(1.0).timeout
 		enemigo_muerto.emit()
 		queue_free()

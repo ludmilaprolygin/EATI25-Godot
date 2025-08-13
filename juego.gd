@@ -4,6 +4,8 @@ extends Node2D
 @onready var cantidad_enemigos = 5
 
 func _ready() -> void:
+	$Timer.start()
+	$Timer.timeout.connect(_on_Timer_timeout)
 	for i in range(0, cantidad_enemigos):
 		var puntos = $PuntosAparicion.get_children()
 		var punto_al_azar = puntos.pick_random()
@@ -21,7 +23,10 @@ func invocar_enemigo(position: Vector2):
 func check_fin_ola():
 	await get_tree().process_frame
 	if $Enemigos.get_children().is_empty():
+		$Timer.stop()
+		await get_tree().create_timer(5).timeout
 		nueva_ola()
+		$Timer.start()
 
 func nueva_ola():
 	for i in range(0, cantidad_enemigos):
@@ -29,3 +34,6 @@ func nueva_ola():
 		var punto_al_azar = puntos.pick_random()
 		invocar_enemigo(punto_al_azar.global_position)
 		await get_tree().create_timer(0.7).timeout
+
+func _on_Timer_timeout():
+	nueva_ola()

@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		
 func _ready() -> void:
 	var audio = $AudioStreamPlayer2D
-	var random_pitch = randf()
+	var random_pitch = randf_range(-0.5, 0.5)
 	audio.pitch_scale = audio.pitch_scale - random_pitch
 	audio.play()
 
