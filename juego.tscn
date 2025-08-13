@@ -154,6 +154,7 @@ texture = ExtResource("1_gvuhb")
 sources/0 = SubResource("TileSetAtlasSource_gvuhb")
 
 [node name="Juego" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_xbmtn")
 
 [node name="Fondo" type="Node2D" parent="."]
