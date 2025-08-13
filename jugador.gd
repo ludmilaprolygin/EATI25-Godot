@@ -20,11 +20,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		if accel_on:
 			velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
-			sprite.play("run")
+			if direction == Vector2.LEFT || direction == Vector2.RIGHT:
+				sprite.play("run")
 		else:
 			velocity = direction * walk_speed
-			sprite.play("move")
-		
+			if direction == Vector2.LEFT || direction == Vector2.RIGHT:
+				sprite.play("move")
+		if direction == Vector2.DOWN:
+			sprite.play("down")
+		elif direction == Vector2.UP:
+			sprite.play("up")
 		# Solo cambiar flip cuando hay input horizontal
 		if direction.x != 0:
 			sprite.flip_h = direction.x < 0

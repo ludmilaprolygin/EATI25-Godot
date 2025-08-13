@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2mcydujrwdpo" path="res://public/Landscapes/tileset-outside.png" id="1_gvuhb"]
 [ext_resource type="Script" uid="uid://chmjnkndfure" path="res://juego.gd" id="1_xbmtn"]
 [ext_resource type="PackedScene" uid="uid://55yqvf24wayp" path="res://obstaculo_arbol.tscn" id="2_n74ki"]
-[ext_resource type="Script" uid="uid://dwh2pglhoxnvg" path="res://timer.gd" id="5_xbmtn"]
+[ext_resource type="Script" path="res://timer.gd" id="5_xbmtn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n74ki"]
 texture = ExtResource("1_gvuhb")
