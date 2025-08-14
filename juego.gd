@@ -34,6 +34,7 @@ func nueva_ola():
 		var punto_al_azar = puntos.pick_random()
 		invocar_enemigo(punto_al_azar.global_position)
 		await get_tree().create_timer(0.7).timeout
+	Global.nro_oleada += 1
 
 func _on_Timer_timeout():
 	nueva_ola()

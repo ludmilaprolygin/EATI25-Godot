@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4kqq7l4t2v1p"]
+[gd_scene load_steps=3 format=3 uid="uid://b0naa1t1jerb"]
 
 [ext_resource type="Script" uid="uid://b12a146y20v2x" path="res://game_over_menu.gd" id="1_14ib6"]
+[ext_resource type="Texture2D" uid="uid://c1jtuadtmeo8b" path="res://public/GameOver.png" id="2_prwox"]
 
 [node name="GameOverMenu" type="Control"]
 layout_mode = 3
@@ -17,6 +18,11 @@ offset_left = 3.0
 offset_top = -2.0
 offset_right = 1154.0
 offset_bottom = 649.0
+
+[node name="GameOver" type="Sprite2D" parent="Panel"]
+position = Vector2(576, 323)
+scale = Vector2(1.07222, 0.852778)
+texture = ExtResource("2_prwox")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
