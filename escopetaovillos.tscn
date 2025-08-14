@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xmbklwox1k4f"]
+
+[ext_resource type="Texture2D" uid="uid://dncoj5cfu2ug3" path="res://public/escopetaovillos.png" id="1_uuaux"]
+[ext_resource type="Script" uid="uid://eagwh6j8bod6" path="res://escopetaovillos.gd" id="2_4j8if"]
+
+[node name="Escopetaovillos" type="Sprite2D"]
+scale = Vector2(1.35294, 1.35294)
+texture = ExtResource("1_uuaux")
+flip_h = true
+script = ExtResource("2_4j8if")
+
+[node name="PuntaArma" type="Node2D" parent="."]
+position = Vector2(117, -27)

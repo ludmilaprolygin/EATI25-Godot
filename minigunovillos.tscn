@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b87w2cogxhy6b"]
+
+[ext_resource type="Texture2D" uid="uid://b4ye0ebc46i11" path="res://public/minigunovillos.png" id="1_rtrbu"]
+[ext_resource type="Script" uid="uid://by7hc37bli2dj" path="res://minigunovillos.gd" id="2_vfarw"]
+
+[node name="Minigunovillos" type="Sprite2D"]
+texture = ExtResource("1_rtrbu")
+script = ExtResource("2_vfarw")
+
+[node name="PuntaArma" type="Node2D" parent="."]
+position = Vector2(150, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dncoj5cfu2ug3"
-path="res://.godot/imported/escopetaovillos.png-60815e95da3c2b16108a05fee737e625.ctex"
+uid="uid://b4ye0ebc46i11"
+path="res://.godot/imported/minigunovillos.png-285d14fc3c7c3157b041ac4d0302d7d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://public/escopetaovillos.png"
-dest_files=["res://.godot/imported/escopetaovillos.png-60815e95da3c2b16108a05fee737e625.ctex"]
+source_file="res://public/minigunovillos.png"
+dest_files=["res://.godot/imported/minigunovillos.png-285d14fc3c7c3157b041ac4d0302d7d8.ctex"]
 
 [params]
 

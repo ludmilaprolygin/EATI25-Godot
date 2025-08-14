@@ -7,4 +7,4 @@ func _process(delta: float) -> void:
 	update_label_text()
 
 func update_label_text():
-	label.text = str(ceil(timer.get_time_left()))
+	label.text = str(int(timer.get_time_left()))

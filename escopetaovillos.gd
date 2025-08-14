@@ -2,7 +2,11 @@ extends Sprite2D
 
 const MAX_DISTANCE := 50
 @onready var puntaArma = $PuntaArma
-@export var cooldown := 0.2  # segundos entre disparos
+
+@export var cantidad_disparos := 5   # cuántos proyectiles por disparo
+@export var spread := 15             # dispersión total en grados
+
+@export var cooldown := 0.5  # segundos entre disparos
 @export var recoil_strength := 3.0  # pixeles de retroceso
 var tiempo_ultimo_disparo := -cooldown  # para permitir disparo inmediato
 
@@ -18,27 +22,27 @@ func _physics_process(delta):
 
 	global_position = jugador_pos + dir
 	rotation = dir.angle()
-
 	flip_v = dir.x < 0
 
 func disparar():
 	const PROYECTIL = preload("res://proyectil.tscn")
-	var disparo = PROYECTIL.instantiate()
 
-	# Posicionar el disparo justo en la punta
-	disparo.global_position = puntaArma.global_position
-
-	# Rotar disparo para que apunte al mouse
-	var dir = (get_global_mouse_position() - puntaArma.global_position).normalized()
-
-	if $"..".velocity.length() != 0:
-		var max_spread_deg = 5
-		var random_angle = deg_to_rad(randf_range(-max_spread_deg, max_spread_deg))
-		dir = dir.rotated(random_angle)
-		
-	disparo.rotation = dir.angle()
-	get_tree().current_scene.add_child(disparo)
+	# Ángulo base apuntando al mouse
+	var dir_base = (get_global_mouse_position() - puntaArma.global_position).normalized()
+	var mitad_spread = spread / 2
+	var disparo
 	
+	for i in range(1, cantidad_disparos):
+		disparo = PROYECTIL.instantiate()
+		disparo.global_position = puntaArma.global_position
+		
+		var dir = dir_base
+		var random_angle = deg_to_rad(randf_range(-spread, spread))
+		dir = dir_base.rotated(random_angle)
+
+		disparo.rotation = dir.angle()
+		get_tree().current_scene.add_child(disparo)
+
 func _process(delta):
 	tiempo_ultimo_disparo += delta
 	if Input.is_action_just_pressed("disparar") and tiempo_ultimo_disparo >= cooldown:
