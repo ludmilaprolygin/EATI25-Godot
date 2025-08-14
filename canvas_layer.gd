@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func updateVidaLabel():
-	$VidaLabel.text = "Vida: "+str(Global.vida)
+	$VidaLabel.text = "Vida: "+str(int(Global.vida))
 
 func updateScoreLabel():
 	$ScoreLabel.text = "Oleada: "+str(Global.nro_oleada)

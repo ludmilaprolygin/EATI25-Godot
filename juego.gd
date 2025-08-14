@@ -29,12 +29,12 @@ func check_fin_ola():
 		$Timer.start()
 
 func nueva_ola():
+	Global.inc_wave()
 	for i in range(0, cantidad_enemigos):
 		var puntos = $PuntosAparicion.get_children()
 		var punto_al_azar = puntos.pick_random()
 		invocar_enemigo(punto_al_azar.global_position)
 		await get_tree().create_timer(0.7).timeout
-	Global.inc_wave()
 
 func _on_Timer_timeout():
 	nueva_ola()

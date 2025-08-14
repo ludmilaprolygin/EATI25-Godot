@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://by7hc37bli2dj" path="res://minigunovillos.gd" id="2_vfarw"]
 
 [node name="Minigunovillos" type="Sprite2D"]
+scale = Vector2(0.178922, 0.178922)
 texture = ExtResource("1_rtrbu")
 script = ExtResource("2_vfarw")
 

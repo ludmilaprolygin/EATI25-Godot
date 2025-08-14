@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var acceleration := 900.0      # qué tan rápido “agarra velocidad”
 @export var deceleration := 1100.0     # qué tan rápido frena
 @export var daño_por_frame = 0.05
+@onready var arma_actual: Sprite2D = $Pistola
+
+
 var enemigos_en_hurtbox = []
 
 @onready var sprite = null
@@ -22,6 +25,14 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left","ui_right","ui_up","ui_down").normalized()
 	var accel_on := Input.is_action_pressed("accelerate")
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		const MINIGUN = preload("res://minigunovillos.tscn")
+		var instancia = MINIGUN.instantiate()
+		instancia.global_position = global_position
+		arma_actual.queue_free()
+		arma_actual = instancia
+		add_child(instancia)
 	
 	if direction == Vector2.ZERO:
 		# Al soltar: frená (o poné 0 directo)
