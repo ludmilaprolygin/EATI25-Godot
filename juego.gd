@@ -37,3 +37,6 @@ func nueva_ola():
 
 func _on_Timer_timeout():
 	nueva_ola()
+
+func _on_jugador_game_over() -> void:
+	get_tree().change_scene_to_file("res://game_over_menu.tscn")

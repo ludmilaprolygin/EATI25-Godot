@@ -4,7 +4,18 @@ extends CharacterBody2D
 @export var max_speed := 450.0         # tope cuando acelerás
 @export var acceleration := 900.0      # qué tan rápido “agarra velocidad”
 @export var deceleration := 1100.0     # qué tan rápido frena
+@export var vida = 100
+@export var daño_por_frame = 0.05
+var enemigos_en_hurtbox = []
+
 @onready var sprite = null
+
+signal game_over
+
+func recibir_daño():
+	vida -= enemigos_en_hurtbox.size() * daño_por_frame
+	if vida <= 0:
+		game_over.emit()
 
 func _ready():
 	sprite = $AnimatedSprite2D
@@ -34,4 +45,17 @@ func _physics_process(delta: float) -> void:
 		if direction.x != 0:
 			sprite.flip_h = direction.x < 0
 			
+	if not enemigos_en_hurtbox.is_empty():
+		recibir_daño()
 	move_and_slide()
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.has_method("is_enemy"):
+		if not body in enemigos_en_hurtbox:
+			enemigos_en_hurtbox.append(body)
+			print(vida)
+
+func _on_hurtbox_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body in enemigos_en_hurtbox:
+		if body.has_method("is_enemy"):
+			enemigos_en_hurtbox.erase(body)

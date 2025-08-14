@@ -229,3 +229,5 @@ position = Vector2(247, 526)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
 script = SubResource("GDScript_ipdbw")
+
+[connection signal="game_over" from="Entidades/jugador" to="." method="_on_jugador_game_over"]

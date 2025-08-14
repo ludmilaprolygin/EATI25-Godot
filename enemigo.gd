@@ -30,3 +30,6 @@ func recibir_daño():
 		await get_tree().create_timer(1.0).timeout
 		enemigo_muerto.emit()
 		queue_free()
+		
+func is_enemy():
+	pass
