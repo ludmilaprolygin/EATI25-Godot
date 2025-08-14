@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://chgid07njvto6"]
+
+[ext_resource type="Script" uid="uid://4c4myc6pbe25" path="res://canvas_layer.gd" id="1_fyqef"]
+[ext_resource type="Texture2D" uid="uid://6xuxdxqsbab0" path="res://public/corazon.png" id="2_m6e0p"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_fyqef")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_top = 25.0
+offset_right = 143.0
+offset_bottom = 48.0
+text = "Hola"
+vertical_alignment = 1
+
+[node name="VidaLabel" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 2.0
+offset_right = 178.0
+offset_bottom = 25.0
+text = "hola"
+
+[node name="Sprite2D" type="Sprite2D" parent="VidaLabel"]
+position = Vector2(-20.6299, 11.9202)
+scale = Vector2(0.0567558, 0.0559473)
+texture = ExtResource("2_m6e0p")

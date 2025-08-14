@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://1f7bq5523vj7"]
+[gd_scene load_steps=14 format=4 uid="uid://1f7bq5523vj7"]
 
 [ext_resource type="PackedScene" uid="uid://cyd3u56hkg1vp" path="res://jugador.tscn" id="1_g3dr0"]
 [ext_resource type="Texture2D" uid="uid://d2mcydujrwdpo" path="res://public/Landscapes/tileset-outside.png" id="1_gvuhb"]
 [ext_resource type="Script" uid="uid://chmjnkndfure" path="res://juego.gd" id="1_xbmtn"]
 [ext_resource type="PackedScene" uid="uid://55yqvf24wayp" path="res://obstaculo_arbol.tscn" id="2_n74ki"]
 [ext_resource type="PackedScene" path="res://obstaculo_casa.tscn" id="4_xbmtn"]
+[ext_resource type="PackedScene" uid="uid://chgid07njvto6" path="res://ui.tscn" id="6_6v0qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n74ki"]
 texture = ExtResource("1_gvuhb")
@@ -229,5 +230,7 @@ position = Vector2(247, 526)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
 script = SubResource("GDScript_ipdbw")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_6v0qg")]
 
 [connection signal="game_over" from="Entidades/jugador" to="." method="_on_jugador_game_over"]
