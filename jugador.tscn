@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cyd3u56hkg1vp"]
+[gd_scene load_steps=43 format=3 uid="uid://cyd3u56hkg1vp"]
 
 [ext_resource type="Script" uid="uid://curky5f0jwqj" path="res://jugador.gd" id="1_omvyu"]
 [ext_resource type="Texture2D" uid="uid://cbo7d3hb3tnr6" path="res://public/Gatos/Cat-2/Cat-2-Walk.png" id="2_8o684"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://m4etmec2a378" path="res://public/Gatos/Cat-2/Cat-2-frente.png" id="3_btb33"]
 [ext_resource type="Texture2D" uid="uid://dave6dooc1c0s" path="res://public/Gatos/Cat-2/Cat-2-Licking 1.png" id="3_ukil5"]
 [ext_resource type="PackedScene" uid="uid://07blwowwu5rv" path="res://lanzaovillos.tscn" id="4_ukil5"]
+[ext_resource type="PackedScene" uid="uid://xmbklwox1k4f" path="res://escopetaovillos.tscn" id="9_o2m60"]
+[ext_resource type="PackedScene" uid="uid://b87w2cogxhy6b" path="res://minigunovillos.tscn" id="10_hcpjn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8o684"]
 radius = 21.0
@@ -274,9 +276,15 @@ sprite_frames = SubResource("SpriteFrames_o2m60")
 animation = &"down"
 autoplay = "still"
 
-[node name="Pistola" parent="." instance=ExtResource("4_ukil5")]
+[node name="Armas" type="Node2D" parent="."]
+
+[node name="Lanzaovillos" parent="Armas" instance=ExtResource("4_ukil5")]
 position = Vector2(24, 2)
 scale = Vector2(4.23811, 4.26936)
+
+[node name="Escopetaovillos" parent="Armas" instance=ExtResource("9_o2m60")]
+
+[node name="Minigunovillos" parent="Armas" instance=ExtResource("10_hcpjn")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 

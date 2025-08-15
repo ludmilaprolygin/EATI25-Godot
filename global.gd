@@ -3,6 +3,7 @@ extends Node
 @onready var nro_oleada = 1
 @export var vida = 100
 @onready var timer = $Juego/Timer
+@onready var jugador
 
 signal player_damaged
 

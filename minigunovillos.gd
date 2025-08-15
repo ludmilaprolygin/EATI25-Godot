@@ -19,7 +19,7 @@ func _physics_process(delta):
 	rotation = dir.angle()
 	flip_v = dir.x < 0
 
-func disparar():
+func lanzar_proyectil():
 	const PROYECTIL = preload("res://proyectil.tscn")
 	var disparo = PROYECTIL.instantiate()
 
@@ -34,11 +34,11 @@ func disparar():
 	disparo.rotation = dir.angle()
 	get_tree().current_scene.add_child(disparo)
 
-func _process(delta):
-	tiempo_ultimo_disparo += delta
-
-	# Disparo automático mientras se mantiene presionada la tecla
-	if Input.is_action_pressed("disparar") and tiempo_ultimo_disparo >= cooldown:
-		disparar()
+func disparar():
+	if tiempo_ultimo_disparo >= cooldown:
+		lanzar_proyectil()
 		tiempo_ultimo_disparo = 0.0
 		position += Vector2(-recoil_strength, 0)  # recoil simple
+
+func _process(delta):
+	tiempo_ultimo_disparo += delta

@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0fogwb4vl1tw"]
+
+[ext_resource type="Script" uid="uid://c34bkiofuoumx" path="res://enemigo_especial.gd" id="1_4cx4b"]
+[ext_resource type="Texture2D" uid="uid://biwosma0yii15" path="res://public/Ratones/RatonBlanco.png" id="1_splfl"]
+[ext_resource type="AudioStream" uid="uid://ca4dn28r3mciy" path="res://public/Ratones/ruido_raton_reventado.mp3" id="2_4cx4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrili"]
+atlas = ExtResource("1_splfl")
+region = Rect2(190, 294, 190, 147)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfwnp"]
+atlas = ExtResource("1_splfl")
+region = Rect2(190, 147, 190, 147)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug148"]
+atlas = ExtResource("1_splfl")
+region = Rect2(0, 294, 190, 147)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qg1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrili")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrili")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrili")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfwnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug148")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qxa2m"]
+colors = PackedColorArray(1, 0, 0, 1, 0.501604, 0.066828, 0.0714343, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yid3b"]
+radius = 21.0
+height = 52.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_4cx4b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7qg1k")
+animation = &"move"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4cx4b")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_qxa2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yid3b")

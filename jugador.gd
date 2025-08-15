@@ -5,8 +5,12 @@ extends CharacterBody2D
 @export var acceleration := 900.0      # qué tan rápido “agarra velocidad”
 @export var deceleration := 1100.0     # qué tan rápido frena
 @export var daño_por_frame = 0.05
-@onready var arma_actual: Sprite2D = $Pistola
 
+@onready var armas_nodo = $Armas
+var arma_actual = null
+var armas_indice = 0
+
+var armas = []
 
 var enemigos_en_hurtbox = []
 
@@ -21,18 +25,25 @@ func recibir_daño():
 
 func _ready():
 	sprite = $AnimatedSprite2D
+	Global.jugador = self
+	# Cargar todas las armas del nodo Armas
+	for arma in armas_nodo.get_children():
+		arma.visible = false  # ocultar todas al inicio
+		armas.append(arma)
+	
+	# Activar la primera arma
+	arma_actual = armas[armas_indice]
+	arma_actual.visible = true
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left","ui_right","ui_up","ui_down").normalized()
 	var accel_on := Input.is_action_pressed("accelerate")
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		const MINIGUN = preload("res://minigunovillos.tscn")
-		var instancia = MINIGUN.instantiate()
-		instancia.global_position = global_position
-		arma_actual.queue_free()
-		arma_actual = instancia
-		add_child(instancia)
+		cambiar_arma()  # Cada arma maneja su propio disparo
+	
+	if Input.is_action_pressed("disparar"):
+		arma_actual.disparar()
 	
 	if direction == Vector2.ZERO:
 		# Al soltar: frená (o poné 0 directo)
@@ -69,3 +80,9 @@ func _on_hurtbox_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index
 	if body in enemigos_en_hurtbox:
 		if body.has_method("is_enemy"):
 			enemigos_en_hurtbox.erase(body)
+
+func cambiar_arma():
+	arma_actual.visible = false
+	armas_indice = (armas_indice + 1) % armas.size()
+	arma_actual = armas[armas_indice]
+	arma_actual.visible = true
