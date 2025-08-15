@@ -9,7 +9,6 @@ extends CharacterBody2D
 @onready var armas_nodo = $Armas
 var arma_actual = null
 var armas_indice = 0
-
 var armas = []
 
 var enemigos_en_hurtbox = []

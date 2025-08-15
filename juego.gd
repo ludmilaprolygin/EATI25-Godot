@@ -50,10 +50,11 @@ func _on_enemigo_muerto() -> void:
 
 func _on_Timer_timeout() -> void:
 	if ola_activa:
+		iniciar_ola()
 		# Eliminar enemigos restantes si el tiempo terminó
-		for enemigo in contenedor_enemigos.get_children():
-			enemigo.queue_free()
-		await terminar_ola()
+		#for enemigo in contenedor_enemigos.get_children():
+		#	enemigo.queue_free()
+		#await terminar_ola()
 
 func terminar_ola() -> void:
 	ola_activa = false
@@ -62,3 +63,6 @@ func terminar_ola() -> void:
 	cantidad_enemigos += 2
 	await get_tree().create_timer(delay_entre_olas).timeout
 	iniciar_ola()
+	
+func _on_jugador_game_over() -> void:
+	get_tree().change_scene_to_file("res://game_over_menu.tscn")
