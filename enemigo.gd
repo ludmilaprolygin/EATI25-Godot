@@ -1,14 +1,22 @@
 extends CharacterBody2D
 
 @onready var speed = 150
-@onready var lives = 5
+@onready var lives: int
+@export var max_lives: int = 5
 @onready var sprite = null
 var target
+
+@export var bar_offset: Vector2 = Vector2(0, -28) # altura de la barra sobre la cabeza
+@export var auto_hide_full_bar: bool = true
+@export var bar_visible_time: float = 1.2       # segundos visible al recibir daño
+@onready var health_bar: Control = $HealthBar
+@onready var progress: TextureProgressBar = $HealthBar/TextureProgressBar
 
 signal enemigo_muerto
 
 func _ready():
 	sprite = $AnimatedSprite2D
+	lives = max_lives
 
 func _physics_process(delta: float) -> void:
 	if target:
@@ -21,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func recibir_daño():
 	lives-=1
+	_update_bar_value()
 	if lives<=0:
 		target = false
 		sprite.play("death")
@@ -33,3 +42,32 @@ func recibir_daño():
 		
 func is_enemy():
 	pass
+
+func _update_healthbar_position():
+	if health_bar != null:
+		health_bar.global_position = global_position + bar_offset
+		health_bar.rotation = 0.0
+		health_bar.scale = Vector2.ONE
+	
+func _update_bar_value():
+	if progress != null:
+		progress.value = lives
+		if auto_hide_full_bar:
+			health_bar.visible = true
+			var snap := lives
+			var t := get_tree().create_timer(bar_visible_time)
+			t.timeout.connect(func ():
+				if lives == snap:
+					health_bar.visible = (lives != max_lives)
+			)
+
+func _process(_delta):
+	_update_healthbar_position()
+
+func _defer_hide_bar() -> void:
+	var t := get_tree().create_timer(bar_visible_time)
+	var lives_snapshot := lives
+	t.timeout.connect(func ():
+		if lives == lives_snapshot and auto_hide_full_bar:
+			health_bar.visible = (lives != max_lives)
+	)

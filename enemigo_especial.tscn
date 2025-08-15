@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0fogwb4vl1tw"]
+[gd_scene load_steps=11 format=3 uid="uid://d0fogwb4vl1tw"]
 
 [ext_resource type="Script" uid="uid://c34bkiofuoumx" path="res://enemigo_especial.gd" id="1_4cx4b"]
 [ext_resource type="Texture2D" uid="uid://biwosma0yii15" path="res://public/Ratones/RatonBlanco.png" id="1_splfl"]
 [ext_resource type="AudioStream" uid="uid://ca4dn28r3mciy" path="res://public/Ratones/ruido_raton_reventado.mp3" id="2_4cx4b"]
+[ext_resource type="PackedScene" uid="uid://bptme6bcal61d" path="res://health_bar.tscn" id="4_vrili"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrili"]
 atlas = ExtResource("1_splfl")
@@ -91,3 +92,5 @@ color_ramp = SubResource("Gradient_qxa2m")
 position = Vector2(-4, -6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_yid3b")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_vrili")]

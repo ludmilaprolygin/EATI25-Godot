@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://crao0pocbgtyk"]
+[gd_scene load_steps=11 format=3 uid="uid://crao0pocbgtyk"]
 
 [ext_resource type="Script" uid="uid://b5b33ihwoy8oj" path="res://enemigo.gd" id="1_a5tj2"]
 [ext_resource type="Texture2D" uid="uid://cagwwoqhr7hh0" path="res://public/Ratones/RatonMarron.png" id="2_a5tj2"]
 [ext_resource type="AudioStream" uid="uid://ca4dn28r3mciy" path="res://public/Ratones/ruido_raton_reventado.mp3" id="3_moxti"]
+[ext_resource type="PackedScene" uid="uid://bptme6bcal61d" path="res://health_bar.tscn" id="4_bnx68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_becj5"]
 radius = 8.0
@@ -92,3 +93,5 @@ initial_velocity_max = 50.0
 scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_moxti")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_bnx68")]
