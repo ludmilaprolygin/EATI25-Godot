@@ -16,7 +16,7 @@ const ENEMIGO_ESPECIAL = preload("res://enemigo_especial.tscn")
 @export var porcentaje_especial = 0.1
 
 func _ready() -> void:
-	timer.one_shot = true  # importante
+	timer.one_shot = true
 	timer.wait_time = tiempo_por_ola
 	timer.timeout.connect(_on_Timer_timeout)
 	iniciar_ola()

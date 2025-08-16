@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EATI"
-run/main_scene="uid://1f7bq5523vj7"
+run/main_scene="uid://ddtt68of4h6x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ buses/default_bus_layout=""
 [autoload]
 
 Global="*res://global.gd"
+
+[editor]
+
+movie_writer/movie_file="D:/Godot Engine/EATI 2025/eati-video.avi"
 
 [input]
 

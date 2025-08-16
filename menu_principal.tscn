@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://ddtt68of4h6x"]
+[gd_scene load_steps=7 format=4 uid="uid://ddtt68of4h6x"]
 
 [ext_resource type="Script" uid="uid://dnc3mystowf7v" path="res://menu_principal.gd" id="1_bj1uy"]
 [ext_resource type="Texture2D" uid="uid://d2mcydujrwdpo" path="res://public/Landscapes/tileset-outside.png" id="2_fa1tu"]
 [ext_resource type="Texture2D" uid="uid://bofiq86wkbpgj" path="res://public/Gatos/Cat-2/Cat-2-Idle.png" id="2_gmcsc"]
-[ext_resource type="FontFile" uid="uid://drfox1tngb5nu" path="res://public/pixel_operator/PixelOperator-Bold.ttf" id="2_ns3he"]
-[ext_resource type="FontFile" uid="uid://ehpnx7kd3pw7" path="res://public/pixel_operator/PixelOperatorMono-Bold.ttf" id="3_fa1tu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6518"]
 texture = ExtResource("2_fa1tu")
@@ -155,7 +153,6 @@ alignment = 1
 
 [node name="LabelJuego" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ns3he")
 theme_override_font_sizes/font_size = 65
 text = "Cat vs Rat"
 horizontal_alignment = 1
@@ -164,7 +161,6 @@ horizontal_alignment = 1
 texture_filter = 1
 custom_minimum_size = Vector2(630, 280)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_fa1tu")
 theme_override_font_sizes/normal_font_size = 28
 text = "
 Objetivo: matar a los ratones
@@ -178,7 +174,6 @@ Objetivo: matar a los ratones
 
 [node name="BotonInicio" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_fa1tu")
 theme_override_font_sizes/font_size = 47
 text = "Iniciar juego
 "
@@ -191,7 +186,6 @@ texture = ExtResource("2_gmcsc")
 
 [node name="BotonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_fa1tu")
 theme_override_font_sizes/font_size = 34
 text = "Salir
 "
@@ -199,11 +193,10 @@ text = "Salir
 [node name="LabelEquipo" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 2
-offset_left = 352.0
-offset_top = 600.0
-offset_right = 807.0
-offset_bottom = 646.0
-theme_override_fonts/font = ExtResource("3_fa1tu")
+offset_left = 342.0
+offset_top = 586.0
+offset_right = 797.0
+offset_bottom = 635.0
 theme_override_font_sizes/font_size = 35
 text = "Emalhao ~ Prolygin"
 horizontal_alignment = 1
