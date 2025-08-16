@@ -23,6 +23,7 @@ func recibir_daño():
 		game_over.emit()
 
 func _ready():
+	add_to_group("Player")
 	sprite = $AnimatedSprite2D
 	Global.jugador = self
 	# Cargar todas las armas del nodo Armas

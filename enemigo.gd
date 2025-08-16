@@ -15,6 +15,7 @@ var target
 signal enemigo_muerto
 
 func _ready():
+	add_to_group("Enemigos")
 	sprite = $AnimatedSprite2D
 	lives = max_lives
 
@@ -31,14 +32,7 @@ func recibir_daño():
 	lives-=1
 	_update_bar_value()
 	if lives<=0:
-		target = false
-		sprite.play("death")
-		$CPUParticles2D.emitting = true
-		$AudioStreamPlayer2D.play()
-		await get_tree().process_frame
-		await get_tree().create_timer(1.0).timeout
-		enemigo_muerto.emit()
-		queue_free()
+		die()
 		
 func is_enemy():
 	pass
@@ -71,3 +65,21 @@ func _defer_hide_bar() -> void:
 		if lives == lives_snapshot and auto_hide_full_bar:
 			health_bar.visible = (lives != max_lives)
 	)
+
+func powerup():
+	if randf() < 0.05: # 5% de probabilidad
+		var kaboom_scene = preload("res://powerupKaboom.tscn")
+		var kaboom_instance = kaboom_scene.instantiate()
+		kaboom_instance.global_position = global_position
+		get_tree().current_scene.add_child(kaboom_instance)
+
+func die():
+	target = false
+	sprite.play("death")
+	$CPUParticles2D.emitting = true
+	$AudioStreamPlayer2D.play()
+	await get_tree().process_frame
+	await get_tree().create_timer(1.0).timeout
+	powerup()
+	enemigo_muerto.emit()
+	queue_free()
